@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Document</title>
+</head>
+<body >
+  <h1> Can Background color change Every Second ? </h1>
+  <button id="start">start</button>
+  <button id="stop">Stop</button>
+</body>
+<script>
+  
+  let randomcolor = function(){
+    var has='#'
+    has += Math.round(Math.random()*16777215).toString(16)
+    console.log(has)
+    return has
+  }
+
+  function changcolor(){
+    document.body.style.backgroundColor = randomcolor()
+   }
+   let stop;
+  const startchangecolor = function(){
+    if(!stop){
+      stop = setInterval(changcolor,1000) 
+    }   
+  }
+  const stopchangecolor = function(){
+    clearInterval(stop)
+    console.log('fkdl')
+    stop = null
+  }
+
+  document.querySelector('#start').addEventListener('click', startchangecolor)
+  document.querySelector('#stop').addEventListener('click', stopchangecolor)
+
+</script>
+</html>
